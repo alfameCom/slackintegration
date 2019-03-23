@@ -9,7 +9,7 @@
        {
            'text': 'Please choose what to report',
            'fallback': 'Please contact the Pää-arkkitehti',
-           'callback_id': 'success',
+           'callback_id': 'wopr_command',
            'color': '#3AA3E3',
            'attachment_type': 'default',
            'actions': [
