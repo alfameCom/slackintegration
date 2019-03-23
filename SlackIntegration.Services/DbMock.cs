@@ -43,63 +43,35 @@
            name: 'messsage'
          },
          {
-           label: 'Colleagues1',
+           label: 'Colleague 1',
            type: 'select',
            name: 'usernames1',
            data_source: 'users'
          },{
-           label: 'Colleagues2',
+           label: 'Colleague 2',
            type: 'select',
            name: 'usernames2',
            data_source: 'users',
            optional: true
          },{
-           label: 'Colleagues3',
+           label: 'Colleague 3',
            type: 'select',
            name: 'usernames3',
            data_source: 'users',
            optional: true
          },{
-           label: 'Colleagues4',
+           label: 'Colleague 4',
            type: 'select',
            name: 'usernames4',
            'data_source': 'users',
             optional: true
          },
 		 {
-           label: 'Colleagues5',
+           label: 'Colleague 5',
            type: 'select',
            name: 'usernames5',
            'data_source': 'users',
            optional: true
-         },
-		 {
-           label: 'Colleagues6',
-           type: 'select',
-           name: 'usernames6',
-            'data_source': 'users',
-            optional: true
-         },
-		 {
-           label: 'Colleagues7',
-           type: 'select',
-           name: 'usernames7',
-            'data_source': 'users',
-            optional: true
-         },
-		 {
-           label: 'Colleagues8',
-           type: 'select',
-           name: 'usernames8',
-            'data_source': 'users',
-            optional: true
-         },
-		 {
-           label: 'Colleagues9',
-           type: 'select',
-           name: 'usernames9',
-            'data_source': 'users',
-            optional: true
          }
        ],
 }
