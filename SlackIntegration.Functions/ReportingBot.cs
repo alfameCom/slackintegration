@@ -73,10 +73,15 @@ namespace SlackIntegration.Functions
                 case "submit-success":
                     Task.Run(() => { handler.HandleSuccessSubmission(); });
                     break;
-                case "success":
+                case "wopr_command":
                     Task.Run(() =>
                     {
-                        handler.Handle();
+                        switch (payload.actions.Single().value)
+                        {
+                            case "success":
+                                handler.Handle();
+                                break;
+                        }
                     });
                     break;
                 default:
