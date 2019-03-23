@@ -92,7 +92,7 @@ namespace SlackIntegration.Services.Handlers
             {
                 {"text", sb.ToString() },
                 {"channel", _payload.channel.id },
-                //{"as_user", true }
+                {"as_user", true }
             };
 
             var client = new HttpClient();
