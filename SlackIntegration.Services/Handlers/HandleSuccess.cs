@@ -13,6 +13,7 @@ namespace SlackIntegration.Services.Handlers
     /// </summary>
     public class HandleSuccess
     {
+        private SlackConfigurationService _configurationService;
         private readonly Payload _payload;
 
         /// <summary>
@@ -22,6 +23,7 @@ namespace SlackIntegration.Services.Handlers
         public HandleSuccess(Payload payload)
         {
             _payload = payload;
+            _configurationService = new SlackConfigurationService();
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace SlackIntegration.Services.Handlers
 
             var message = new JObject
             {
-                { "trigger_id", _payload.trigger_id }, { "dialog", JObject.Parse(DbMock.GetSuccessDialog) }
+                { "trigger_id", _payload.trigger_id }, { "dialog", JObject.Parse(_configurationService.GetConfiguration("success_dialog")) }
             };
 
             var client = new HttpClient();
@@ -56,14 +58,12 @@ namespace SlackIntegration.Services.Handlers
                 {"channel", _payload.channel.id }
             };
 
-
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.SlackAccessToken);
             var response = client.PostAsync("https://slack.com/api/chat.postMessage", new StringContent(message.ToString(), Encoding.UTF8, "application/json")).Result;
 
             var responseContent = response.Content.ReadAsStringAsync().Result;
             responseContent = HttpUtility.UrlDecode(responseContent);
-
         }
     }
 }

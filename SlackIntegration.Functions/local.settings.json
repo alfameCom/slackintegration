@@ -4,6 +4,7 @@
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
     "SlackAccessToken": "SeOnKeyVaultis",
-    "SlackVerificationToken": "SeOnKeyVaultis"
+    "SlackVerificationToken": "SeOnKeyVaultis",
+    "DatabaseConnectionString": "Server=.;Database=alfamereporting;Trusted_Connection=True;"
   }
 }
