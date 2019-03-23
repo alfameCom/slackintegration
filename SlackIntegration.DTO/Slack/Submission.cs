@@ -6,7 +6,6 @@ namespace SlackIntegration.DTO.Slack
     {
         public string message { get; set; }
         public string usernames1 { get; set; }
-
         public string usernames2 { get; set; }
         public string usernames3 { get; set; }
         public string usernames4 { get; set; }

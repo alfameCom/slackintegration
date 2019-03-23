@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -53,12 +54,45 @@ namespace SlackIntegration.Services.Handlers
 
         public void HandleSuccessSubmission()
         {
-            var userInfo = GetUserInfo(_payload.submission.usernames1);
+            var receivers = new List<string>();
+            var sb = new StringBuilder();
+
+            var praiser = GetUserInfo(_payload.user.id);
+
+            sb.Append($"Success <@{_payload.submission.usernames1}>");
+            receivers.Add(GetUserInfo(_payload.submission.usernames1).user.real_name);
+
+            if (_payload.submission.usernames2 != null)
+            {
+                receivers.Add(GetUserInfo(_payload.submission.usernames2).user.real_name);
+                sb.Append($" <@{_payload.submission.usernames2}>");
+            }
+
+            if (_payload.submission.usernames3 != null)
+            {
+                receivers.Add(GetUserInfo(_payload.submission.usernames3).user.real_name);
+                sb.Append($" <@{_payload.submission.usernames3}>");
+            }
+
+            if (_payload.submission.usernames4 != null)
+            {
+                receivers.Add(GetUserInfo(_payload.submission.usernames4).user.real_name);
+                sb.Append($" <@{_payload.submission.usernames4}>");
+            }
+
+            if (_payload.submission.usernames5 != null)
+            {
+                receivers.Add(GetUserInfo(_payload.submission.usernames5).user.real_name);
+                sb.Append($" <@{_payload.submission.usernames5}>");
+            }
+
+            sb.Append($" {_payload.submission.message}");
 
             var message = new JObject
             {
-                {"text", $"Success tallennettu! {userInfo.user.real_name}" },
-                {"channel", _payload.channel.id }
+                {"text", sb.ToString() },
+                {"channel", _payload.channel.id },
+                //{"as_user", true }
             };
 
             var client = new HttpClient();
@@ -67,6 +101,9 @@ namespace SlackIntegration.Services.Handlers
 
             var responseContent = response.Content.ReadAsStringAsync().Result;
             responseContent = HttpUtility.UrlDecode(responseContent);
+
+            var successService = new SlackSuccessService();
+            successService.Add(praiser.user.real_name, _payload.submission.message, receivers);
         }
 
         public UserResponse GetUserInfo(string userId)
@@ -75,7 +112,7 @@ namespace SlackIntegration.Services.Handlers
             {
                 var accesToken = Configuration.SlackBotUserAccessToken;
 
-                var url = $"https://slack.com/api/users.info?token={accesToken}user={userId}&pretty=1";
+                var url = $"https://slack.com/api/users.info?token={accesToken}&user={userId}&pretty=1";
 
                 var response = httpClient.GetAsync(url).Result;
 
