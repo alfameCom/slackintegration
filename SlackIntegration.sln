@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.DTO", "Sla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Services", "SlackIntegration.Services\SlackIntegration.Services.csproj", "{A2B6580D-C77F-4070-9393-39B32F04B29C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SlackIntegration.Data", "SlackIntegration.Data\SlackIntegration.Data.sqlproj", "{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SlackIntegration.Database", "SlackIntegration.Database\SlackIntegration.Database.sqlproj", "{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
