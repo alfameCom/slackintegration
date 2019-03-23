@@ -56,14 +56,12 @@ namespace SlackIntegration.Services.Handlers
                 {"channel", _payload.channel.id }
             };
 
-
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.SlackAccessToken);
             var response = client.PostAsync("https://slack.com/api/chat.postMessage", new StringContent(message.ToString(), Encoding.UTF8, "application/json")).Result;
 
             var responseContent = response.Content.ReadAsStringAsync().Result;
             responseContent = HttpUtility.UrlDecode(responseContent);
-
         }
     }
 }

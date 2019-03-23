@@ -68,6 +68,7 @@
     <RefactorLog Include="SlackIntegration.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SlackIntegration.Database.publish.xml" />
+    <None Include="Azure.publish.xml" />
+    <None Include="Local.publish.xml" />
   </ItemGroup>
 </Project>
