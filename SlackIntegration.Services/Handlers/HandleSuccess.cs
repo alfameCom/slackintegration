@@ -57,7 +57,7 @@ namespace SlackIntegration.Services.Handlers
             var receivers = new List<string>();
             var sb = new StringBuilder();
 
-            var praiser = GetUserInfo(_payload.user.id);
+            var praiser = GetUserInfo(_payload.user.id).user.real_name;
 
             sb.Append($"Success <@{_payload.submission.usernames1}>");
             receivers.Add(GetUserInfo(_payload.submission.usernames1).user.real_name);
@@ -91,8 +91,8 @@ namespace SlackIntegration.Services.Handlers
             var message = new JObject
             {
                 {"text", sb.ToString() },
-                {"channel", _payload.channel.id },
-                //{"as_user", true }
+                {"channel", _payload.channel.id},
+                {"username", praiser }
             };
 
             var client = new HttpClient();
@@ -103,7 +103,7 @@ namespace SlackIntegration.Services.Handlers
             responseContent = HttpUtility.UrlDecode(responseContent);
 
             var successService = new SlackSuccessService();
-            successService.Add(praiser.user.real_name, _payload.submission.message, receivers);
+            successService.Add(praiser, _payload.submission.message, receivers);
         }
 
         public UserResponse GetUserInfo(string userId)
