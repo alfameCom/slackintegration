@@ -1,4 +1,4 @@
-﻿CREATE VIEW [dbo].[BINonsenseView]
+﻿CREATE VIEW [dbo].[vwBINonsense]
 	AS 
 	select id, praiser, successdate,
 datepart(year, successdate) as year,

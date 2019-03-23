@@ -57,17 +57,21 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="SlackConfiguration.sql" />
-    <Build Include="SlackSuccess.sql" />
-    <Build Include="SlackSuccessReceiver.sql" />
-    <Build Include="BINonsenseView.sql" />
+    <Build Include="Tables\SlackConfiguration.sql" />
+    <Build Include="Views\vwBINonsense.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SlackIntegration.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SlackIntegration.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\SlackSuccess.sql" />
+    <Build Include="Tables\SlackSuccessReceiver.sql" />
   </ItemGroup>
 </Project>
