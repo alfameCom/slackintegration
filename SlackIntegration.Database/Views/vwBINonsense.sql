@@ -13,5 +13,6 @@ datepart(minute, successdate) as minute,
 datepart(second, successdate) as second,
 datepart(millisecond, successdate) as millisecond,
 datepart(microsecond, successdate) as microsecond,
-datepart(nanosecond, successdate) as nanosecond
+datepart(nanosecond, successdate) as nanosecond,
+Message
 from slacksuccess
