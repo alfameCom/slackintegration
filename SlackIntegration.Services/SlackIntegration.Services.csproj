@@ -127,6 +127,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlackConfigurationService.cs" />
     <Compile Include="SlackDebugMessageService.cs" />
+    <Compile Include="SlackSuccessService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlackIntegration.Data\SlackIntegration.Data.csproj">
