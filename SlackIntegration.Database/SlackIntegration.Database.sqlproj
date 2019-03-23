@@ -64,6 +64,7 @@
     <Build Include="Tables\SlackConfiguration.sql" />
     <Build Include="Views\vwBINonsense.sql" />
     <Build Include="SlackDebugMessages.sql" />
+    <Build Include="Views\vwBITotallyUseless.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SlackIntegration.Database.refactorlog" />
