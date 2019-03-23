@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SlackIntegration.Data</Name>
+    <Name>SlackIntegration.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{94b80cbd-8b05-4add-9bdd-5d873001c7a4}</ProjectGuid>
@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SlackIntegration.Data</RootNamespace>
-    <AssemblyName>SlackIntegration.Data</AssemblyName>
+    <RootNamespace>SlackIntegration.Database</RootNamespace>
+    <AssemblyName>SlackIntegration.Database</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -60,11 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="SlackConfiguration.sql" />
+    <Build Include="SlackSuccess.sql" />
+    <Build Include="SlackSuccessReceiver.sql" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="SlackIntegration.Data.refactorlog" />
+    <RefactorLog Include="SlackIntegration.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SlackIntegration.Data.publish.xml" />
+    <None Include="SlackIntegration.Database.publish.xml" />
   </ItemGroup>
 </Project>
