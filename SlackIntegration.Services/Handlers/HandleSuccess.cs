@@ -71,15 +71,13 @@ namespace SlackIntegration.Services.Handlers
 
         public UserResponse GetUserInfo(string userId)
         {
-            var message = new JObject
-            {
-                {"user", userId },
-            };
-
             using (var httpClient = new HttpClient())
             {
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.SlackAccessToken);
-                var response = httpClient.PostAsync("https://slack.com/api/users.info", new StringContent(message.ToString(), Encoding.UTF8, "application/x-www-form-urlencoded")).Result;
+                var accesToken = Configuration.SlackBotUserAccessToken;
+
+                var url = $"https://slack.com/api/users.info?token={accesToken}user={userId}&pretty=1";
+
+                var response = httpClient.GetAsync(url).Result;
 
                 var responseContent = response.Content.ReadAsStringAsync().Result;
                 responseContent = HttpUtility.UrlDecode(responseContent);

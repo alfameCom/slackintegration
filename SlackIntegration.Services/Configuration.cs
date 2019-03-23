@@ -10,5 +10,8 @@
 
         public static string DatabaseConnectionString
             => System.Environment.GetEnvironmentVariable("DatabaseConnectionString");
+
+        public static string SlackBotUserAccessToken =>
+            System.Environment.GetEnvironmentVariable("SlackBotUserAccessToken");
     }
 }
