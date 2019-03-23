@@ -50,7 +50,20 @@ namespace SlackIntegration.Services.Handlers
 
         public void HandleSuccessSubmission()
         {
-            throw new NotImplementedException();
+            var message = new JObject
+            {
+                {"text", "Success tallennettu!" },
+                {"channel", _payload.channel.id }
+            };
+
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue('Bearer', Configuration.SlackAccessToken);
+            var response = client.PostAsync("https://slack.com/api/chat.postMessage", new StringContent(message.ToString(), Encoding.UTF8, "application/json")).Result;
+
+            var responseContent = response.Content.ReadAsStringAsync().Result;
+            responseContent = HttpUtility.UrlDecode(responseContent);
+
         }
     }
 }
