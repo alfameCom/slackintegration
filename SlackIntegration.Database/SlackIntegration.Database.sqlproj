@@ -62,6 +62,7 @@
     <Build Include="SlackConfiguration.sql" />
     <Build Include="SlackSuccess.sql" />
     <Build Include="SlackSuccessReceiver.sql" />
+    <Build Include="BINonsenseView.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SlackIntegration.Database.refactorlog" />
