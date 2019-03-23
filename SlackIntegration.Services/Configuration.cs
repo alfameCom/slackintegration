@@ -7,5 +7,8 @@
 
         public static string SlackVerificationToken
             => System.Environment.GetEnvironmentVariable("SlackVerificationToken");
+
+        public static string DatabaseConnectionString
+            => System.Environment.GetEnvironmentVariable("DatabaseConnectionString");
     }
 }

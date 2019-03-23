@@ -1,18 +1,18 @@
-using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SlackIntegration.DTO.Slack;
+using SlackIntegration.Services;
+using SlackIntegration.Services.Handlers;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using SlackIntegration.DTO.Slack;
-using SlackIntegration.Services;
-using SlackIntegration.Services.Handlers;
 
 namespace SlackIntegration.Functions
 {
@@ -29,6 +29,9 @@ namespace SlackIntegration.Functions
         {
             log.Info("ReportingBotPost");
 
+            // TODO this is fucking stupid to run here, should be run only once on application startup
+            Redirect.Run();
+
             // Parsitaan sisältö
             var content = req.Content.ReadAsStringAsync().Result;
             content = HttpUtility.UrlDecode(content);
@@ -36,9 +39,12 @@ namespace SlackIntegration.Functions
             // Jos sisältö alkaa 'payload=' se sisältää käyttäjän valintoja muuten palautetaan valikko
             if (content == null || !content.StartsWith("payload="))
             {
+                var configurationService = new SlackConfigurationService();
                 return new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    Content = new StringContent(JsonConvert.SerializeObject(JObject.Parse(DbMock.GetValikko)), Encoding.UTF8,
+                    Content = new StringContent(
+                        JsonConvert.SerializeObject(JObject.Parse(configurationService.GetConfiguration("valikko"))),
+                        Encoding.UTF8,
                         "application/json")
                 };
             }
@@ -73,6 +79,7 @@ namespace SlackIntegration.Functions
                 case "submit-success":
                     Task.Run(() => { handler.HandleSuccessSubmission(); });
                     break;
+
                 case "wopr_command":
                     Task.Run(() =>
                     {
@@ -84,6 +91,7 @@ namespace SlackIntegration.Functions
                         }
                     });
                     break;
+
                 default:
                     throw new Exception($"Unknown callbackId: {callbackId}");
             }
