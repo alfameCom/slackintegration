@@ -36,6 +36,13 @@ namespace SlackIntegration.Functions
             var content = req.Content.ReadAsStringAsync().Result;
             content = HttpUtility.UrlDecode(content);
 
+            // Tallennetaan kantaan mitä slack meille lähetti
+            if (!string.IsNullOrEmpty(content))
+            {
+                var debugMessageService = new SlackDebugMessageService();
+                debugMessageService.AddMessage(content);
+            }
+
             // Jos sisältö alkaa 'payload=' se sisältää käyttäjän valintoja muuten palautetaan valikko
             if (content == null || !content.StartsWith("payload="))
             {

@@ -16,12 +16,18 @@ namespace SlackIntegration.Data
         }
 
         public virtual DbSet<SlackConfiguration> SlackConfiguration { get; set; }
+        public virtual DbSet<SlackDebugMessages> SlackDebugMessages { get; set; }
         public virtual DbSet<SlackSuccess> SlackSuccess { get; set; }
         public virtual DbSet<SlackSuccessReceiver> SlackSuccessReceiver { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
+
+            modelBuilder.Entity<SlackDebugMessages>(entity =>
+            {
+                entity.Property(e => e.Received).HasDefaultValueSql("(getdate())");
+            });
 
             modelBuilder.Entity<SlackSuccess>(entity =>
             {
@@ -30,8 +36,6 @@ namespace SlackIntegration.Data
 
             modelBuilder.Entity<SlackSuccessReceiver>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Success)
                     .WithMany(p => p.SlackSuccessReceiver)
                     .HasForeignKey(d => d.SuccessId)
