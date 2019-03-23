@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SlackIntegration.DTO.Slack;
 
@@ -52,9 +53,11 @@ namespace SlackIntegration.Services.Handlers
 
         public void HandleSuccessSubmission()
         {
+            var userInfo = GetUserInfo(_payload.submission.usernames1);
+
             var message = new JObject
             {
-                {"text", "Success tallennettu!" },
+                {"text", $"Success tallennettu! {userInfo.user.real_name}" },
                 {"channel", _payload.channel.id }
             };
 
@@ -64,6 +67,24 @@ namespace SlackIntegration.Services.Handlers
 
             var responseContent = response.Content.ReadAsStringAsync().Result;
             responseContent = HttpUtility.UrlDecode(responseContent);
+        }
+
+        public UserResponse GetUserInfo(string userId)
+        {
+            var message = new JObject
+            {
+                {"user", userId },
+            };
+
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.SlackAccessToken);
+                var response = httpClient.PostAsync("https://slack.com/api/users.info", new StringContent(message.ToString(), Encoding.UTF8, "application/x-www-form-urlencoded")).Result;
+
+                var responseContent = response.Content.ReadAsStringAsync().Result;
+                responseContent = HttpUtility.UrlDecode(responseContent);
+                return JsonConvert.DeserializeObject<UserResponse>(responseContent);
+            }
         }
     }
 }
