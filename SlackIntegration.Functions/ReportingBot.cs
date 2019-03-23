@@ -64,19 +64,23 @@ namespace SlackIntegration.Functions
 
         private static void HandlePayload(Payload payload)
         {
-            var action = payload.actions.Single();
-            switch (action.value)
+            var handler = new HandleSuccess(payload);
+
+            var callbackId = payload.callback_id;
+
+            switch (callbackId)
             {
+                case "submit-success":
+                    Task.Run(() => { handler.HandleSuccessSubmission(); });
+                    break;
                 case "success":
                     Task.Run(() =>
                     {
-                        var handler = new HandleSuccess(payload);
                         handler.Handle();
                     });
                     break;
-
                 default:
-                    throw new Exception($"We have no spoon for {action.value}");
+                    throw new Exception($"Unknown callbackId: {callbackId}");
             }
         }
     }
