@@ -18,10 +18,12 @@ namespace SlackIntegration.DTO.Slack
         public bool is_app_unfurl { get; set; }
         public string response_url { get; set; }
         public string trigger_id { get; set; }
+        public Submission submission { get; set; }
 
         public Payload()
         {
             actions = new List<Action>();
+            submission = new Submission();
         }
     }
 }

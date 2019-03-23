@@ -45,8 +45,10 @@
     <Compile Include="Slack\Action.cs" />
     <Compile Include="Slack\Channel.cs" />
     <Compile Include="Slack\Payload.cs" />
+    <Compile Include="Slack\Submission.cs" />
     <Compile Include="Slack\Team.cs" />
     <Compile Include="Slack\User.cs" />
+    <Compile Include="Slack\UserResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

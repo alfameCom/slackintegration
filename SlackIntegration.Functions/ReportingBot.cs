@@ -64,11 +64,19 @@ namespace SlackIntegration.Functions
                 return new HttpResponseMessage(HttpStatusCode.InternalServerError);
             }
 
-            HandlePayload(payload);
+            log.Info(content);
+            try
+            {
+                HandlePayload(payload, log);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+            }
             return req.CreateResponse(HttpStatusCode.OK);
         }
 
-        private static void HandlePayload(Payload payload)
+        private static void HandlePayload(Payload payload, TraceWriter log)
         {
             var handler = new HandleSuccess(payload);
 
@@ -77,7 +85,17 @@ namespace SlackIntegration.Functions
             switch (callbackId)
             {
                 case "submit-success":
-                    Task.Run(() => { handler.HandleSuccessSubmission(); });
+                    Task.Run(() =>
+                    {
+                        try
+                        {
+                            handler.HandleSuccessSubmission();
+                        }
+                        catch (Exception ex)
+                        {
+                            log.Error(ex.Message);
+                        }
+                    });
                     break;
 
                 case "wopr_command":
