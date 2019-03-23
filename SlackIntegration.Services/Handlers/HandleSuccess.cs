@@ -47,5 +47,10 @@ namespace SlackIntegration.Services.Handlers
             var responseContent = response.Content.ReadAsStringAsync().Result;
             responseContent = HttpUtility.UrlDecode(responseContent);
         }
+
+        public void HandleSuccessSubmission()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
