@@ -59,12 +59,14 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Views" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\SlackConfiguration.sql" />
     <Build Include="Views\vwBINonsense.sql" />
     <Build Include="SlackDebugMessages.sql" />
     <Build Include="Views\vwBITotallyUseless.sql" />
+    <Build Include="Scripts\SlackImportOldYammerHashtags.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SlackIntegration.Database.refactorlog" />
