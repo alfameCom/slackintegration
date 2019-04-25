@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlackIntegration.Functions", "SlackIntegration.Functions\SlackIntegration.Functions.csproj", "{5E62CF28-E2DB-4C26-9133-9311C207EBDE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.DTO", "SlackIntegration.DTO\SlackIntegration.DTO.csproj", "{0BF01E57-294B-4DA1-A9AF-DD5BB7ED10A2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Services", "SlackIntegration.Services\SlackIntegration.Services.csproj", "{A2B6580D-C77F-4070-9393-39B32F04B29C}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SlackIntegration.Database", "SlackIntegration.Database\SlackIntegration.Database.sqlproj", "{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Data", "SlackIntegration.Data\SlackIntegration.Data.csproj", "{655E5B7D-4835-43D0-82F2-568E83CFBDB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlackIntegration.Functions", "SlackIntegration.Functions\SlackIntegration.Functions.csproj", "{0EEB5A75-CCCB-4873-89C7-C2F65F4D8977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.DTO", "SlackIntegration.DTO\SlackIntegration.DTO.csproj", "{379E5937-C522-41E1-9427-8985E7D54671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Services", "SlackIntegration.Services\SlackIntegration.Services.csproj", "{F9ECB76B-A8EA-403E-B7F4-4C07B0EB6B63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Data.ScaffoldStartup", "SlackIntegration.Data.ScaffoldStartup\SlackIntegration.Data.ScaffoldStartup.csproj", "{4F672B53-2F66-4D9B-B1E3-E12E0533E614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackIntegration.Data", "SlackIntegration.Data\SlackIntegration.Data.csproj", "{4A85695F-0C4F-4319-9D75-A7B13CB11E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,28 +21,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E62CF28-E2DB-4C26-9133-9311C207EBDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E62CF28-E2DB-4C26-9133-9311C207EBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E62CF28-E2DB-4C26-9133-9311C207EBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E62CF28-E2DB-4C26-9133-9311C207EBDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BF01E57-294B-4DA1-A9AF-DD5BB7ED10A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BF01E57-294B-4DA1-A9AF-DD5BB7ED10A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BF01E57-294B-4DA1-A9AF-DD5BB7ED10A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BF01E57-294B-4DA1-A9AF-DD5BB7ED10A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2B6580D-C77F-4070-9393-39B32F04B29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2B6580D-C77F-4070-9393-39B32F04B29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2B6580D-C77F-4070-9393-39B32F04B29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2B6580D-C77F-4070-9393-39B32F04B29C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94B80CBD-8B05-4ADD-9BDD-5D873001C7A4}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{655E5B7D-4835-43D0-82F2-568E83CFBDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{655E5B7D-4835-43D0-82F2-568E83CFBDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{655E5B7D-4835-43D0-82F2-568E83CFBDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{655E5B7D-4835-43D0-82F2-568E83CFBDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEB5A75-CCCB-4873-89C7-C2F65F4D8977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEB5A75-CCCB-4873-89C7-C2F65F4D8977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEB5A75-CCCB-4873-89C7-C2F65F4D8977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEB5A75-CCCB-4873-89C7-C2F65F4D8977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379E5937-C522-41E1-9427-8985E7D54671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379E5937-C522-41E1-9427-8985E7D54671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379E5937-C522-41E1-9427-8985E7D54671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379E5937-C522-41E1-9427-8985E7D54671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9ECB76B-A8EA-403E-B7F4-4C07B0EB6B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9ECB76B-A8EA-403E-B7F4-4C07B0EB6B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9ECB76B-A8EA-403E-B7F4-4C07B0EB6B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9ECB76B-A8EA-403E-B7F4-4C07B0EB6B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F672B53-2F66-4D9B-B1E3-E12E0533E614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F672B53-2F66-4D9B-B1E3-E12E0533E614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F672B53-2F66-4D9B-B1E3-E12E0533E614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F672B53-2F66-4D9B-B1E3-E12E0533E614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A85695F-0C4F-4319-9D75-A7B13CB11E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A85695F-0C4F-4319-9D75-A7B13CB11E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A85695F-0C4F-4319-9D75-A7B13CB11E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A85695F-0C4F-4319-9D75-A7B13CB11E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SlackIntegration.Services
 {
+    // TODO: Rajapinta
     public class SlackConfigurationService
     {
         public string GetConfiguration(string key)

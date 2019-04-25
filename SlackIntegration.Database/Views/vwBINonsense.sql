@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[vwBINonsense]
 	AS 
-	select id, praiser, successdate,
+	select id, Praiser, successdate,
 datepart(year, successdate) as year,
 datepart(quarter, successdate) as quarter,
 datepart(month, successdate) as month,
