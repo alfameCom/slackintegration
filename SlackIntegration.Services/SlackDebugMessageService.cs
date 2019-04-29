@@ -2,6 +2,7 @@
 
 namespace SlackIntegration.Services
 {
+    // TODO: Rajapinta
     public class SlackDebugMessageService
     {
         public void AddMessage(string message)
