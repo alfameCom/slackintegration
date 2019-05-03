@@ -1,1 +1,1 @@
-# slackintegration
+![alt text](https://raw.githubusercontent.com/alfameCom/slackintegration/master/SlackIntegration.png)
